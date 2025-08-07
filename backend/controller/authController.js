@@ -11,7 +11,7 @@ export const signUp = async (req, res) => {
         if(exitUser){
             return res.status(400).json({message: "User already exists"});
         }
-        if (validator.isEmail(email)){
+        if (!validator.isEmail(email)){
             return res.status(400).json({message: "Enter valid email"});
         }
         if (password.length < 6) {
@@ -25,7 +25,7 @@ export const signUp = async (req, res) => {
             role
         });
         let token = await genToken(user._id);
-        req.cookies("token", token, {
+        res.cookie("token", token, {
             httpOnly: true,
             secure: "false",
             sameSite: "strict",
@@ -50,7 +50,7 @@ export const login = async (req, res) => {
             return res.status(400).json({message: "Incorrect password"});
         }
         let token = await genToken(user._id);
-        req.cookies("token", token, {
+        res.cookie("token", token, {
             httpOnly: true,
             secure: "false",
             sameSite: "strict",
