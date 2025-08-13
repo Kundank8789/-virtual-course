@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from "../assets/logo.jpg"
+import google from "../assets/google.jpg"
+import {IoEyeOutline} from "react-icons/io5"
+import { IoEye } from "react-icons/io5";
+import { Prev } from 'react-bootstrap/esm/PageItem';
+
 function SignUp() {
+    const[show , setshow] =useState(false)
   return (
     <div className='bg-[#dddbdb] w-[100vw] h-[100vh] flex items-center justify-center'>
         <form className='w-[90%] md:w-200 h-150 bg-[white] shadow-xl rounded-2xl flex'>
@@ -21,9 +27,20 @@ function SignUp() {
                 <label htmlFor="email" className='font-semibold'>Email</label>
                 <input id='email' type="text" className='border-1 w-[100%] h-[35px] border-[#e7e6e6] text-[15px] px-[20px]'placeholder='your email'/>
             </div>
-             <div className='flex flex-col gap-1 w-[80%] items-start justify-center px-3'>
+             <div className='flex flex-col gap-1 w-[80%] items-start justify-center px-3 relative'>
                 <label htmlFor="Password" className='font-semibold'>password</label>
-                <input id='password' type="password" className='border-1 w-[100%] h-[35px] border-[#e7e6e6] text-[15px] px-[20px]'placeholder='your password'/>
+                <input id='password' type={show ? "text" : "password"} className='border-1 w-[100%] h-[35px] border-[#e7e6e6] text-[15px] px-[20px]'placeholder='your password'/>
+                   {show ? (
+              <IoEye 
+                className='absolute top-[38px] right-[15px] w-[20px] h-[20px] cursor-pointer text-gray-500'
+                onClick={() => setshow(Prev => !Prev)}
+              />
+            ) : (
+              <IoEyeOutline 
+                className='absolute top-[38px] right-[15px] w-[20px] h-[20px] cursor-pointer text-gray-500'
+                onClick={() => setshow(Prev => !Prev)}
+              />
+            )}
             </div>
             <div className='flex md:w-[50%] w-[70%] items-center justify-between'>
                 <span className='px-[10px] py-[5px] border-[2px] border-[#e7e6e6] rounded-b-xl cursor-pointer hover:border-black'>Student</span>
@@ -36,7 +53,8 @@ function SignUp() {
                 <div className='w-[25%] h-[0.5px] bg-[#c4c4c4]'></div>
             </div>
             <div className='w-[80%] h-[40px] border-1 border-[black] rounded-[5px] flex items-center justify-center'>
-                <img src="" alt="" />
+                <img src={google} className='w-[25px]' alt="" />
+                <span className='text-[18px] text-gray-500'>oogle</span>
             </div>
         </div>
 
