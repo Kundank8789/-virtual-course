@@ -1,9 +1,12 @@
 import React from 'react'
+import Nav from '../components/Nav.jsx'
 
 function Home() {
   return (
-    <div className='flex flex-col items-center justify-center h-screen bg-gray-100'>
-        Home page
+    <div className='w-[100%] overflow-hidden'>
+        <div className='w-[100%] lg:h-[140vh] h-[70vh] relative'>
+          <Nav />
+        </div>
     </div>
   )
 }
