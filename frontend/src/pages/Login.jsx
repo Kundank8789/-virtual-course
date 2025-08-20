@@ -10,6 +10,8 @@ import { toast } from 'react-toastify';
 import  ClipLoader  from 'react-spinners/ClipLoader';
 import { useDispatch } from 'react-redux';
 import { setUserData } from '../redux/userSlice';
+import { Navigate } from 'react-router-dom'
+
 function Login() {
     const[show , setshow] =useState(false)
     const [email, setEmail] = useState('');
@@ -68,7 +70,7 @@ function Login() {
               </div>
              
               <button className='w-[80%] h-[40px] bg-black text-white cursor-pointer flex items-center justify-center rounded-[5px]'disabled={loading} onClick={handleLogin}>{loading ? <ClipLoader size={30} color='white'/>:"Login"}</button>
-              <span className='text-[13px] cursor-pointer text-[#585757]'>Forget your  Password ?</span>
+              <span className='text-[13px] cursor-pointer text-[#585757]'  onClick={()=>navigate("/forgot-password")}>Forget your  Password ?</span>
               <div className='w-[80%] flex items-center gap-2'>
                   <div className='w-[25%] h-[0.5px] bg-[#c4c4c4]'></div>
                   <div className='w-[50%] text-[15px] text-[#6f6f6f] flex items-center justify-center'>Or continue </div>

@@ -71,3 +71,12 @@ export const logout = async (req, res) => {
         return res.status(500).json({message: `Logout error ${error}`});
     }
 }
+
+export const sendOTP= async (req, res)=>{
+    try {
+        
+    } catch (error) {
+        
+    }
+
+}
