@@ -54,7 +54,7 @@ function SignUp() {
                 toast.success('SignUp successfully!')
         } catch (error) {
             console.log(error);
-            toast.error(error.respose.data.message)
+            toast.error(error.response.data.message)
         }
     }
 
