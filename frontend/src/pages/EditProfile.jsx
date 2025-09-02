@@ -22,7 +22,7 @@ function EditProfile() {
   const formData = new FormData()
   formData.append("name", name)
   formData.append("description", description)
-  formData.append("photoUrl", photoUrl) 
+  formData.append("photo", photoUrl) 
 
   const handleEditProfile = async () =>{
     setLoading(true)
