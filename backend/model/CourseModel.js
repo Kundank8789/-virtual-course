@@ -5,23 +5,48 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  subtitle: {
+    type: String,
+  },
   description: {
     type: String,
-    required: true
   },
-  instructor: {
+  category: {
     type: String,
     required: true
   },
-  duration: {
-    type: Number,
-    required: true
+  level:{
+    type: String,
+    enum: ['Beginner', 'Intermediate', 'Advanced'],
   },
-  createdAt: {
-    type: Date,
-    default: Date.now
-  }
-})
+  price: {
+    type: Number,
+  },
+  thumbnail: {
+    type: String,
+  },
+  enrolledStudents: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  lectures: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Lecture'
+  }],
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
+  isPublished: {
+    type: Boolean,
+    default: false
+  },
+  review: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Review'
+  }],
+
+},{ timestamps: true})
 
 const Course = mongoose.model('Course', courseSchema)
 
