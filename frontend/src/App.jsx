@@ -12,6 +12,7 @@ import { Navigate } from 'react-router-dom'
 import ForgotPassword from './pages/ForgotPassword.jsx'
 import EditProfile from './pages/EditProfile.jsx'
 import Dashboard from './pages/Educator/Dashboard.jsx'
+import Courses from './pages/Educator/courses.jsx'
 import CreateCourses from './pages/Educator/CreateCourses.jsx'
 
 
@@ -29,6 +30,7 @@ function App() {
        <Route path='/forgot-password' element={ <ForgotPassword/>} />
        <Route path='/editprofile' element={userData ? <EditProfile/> : <Navigate to={"/signup"}/>} />
        <Route path='/dashboard' element={userData?.role === "educator" ? <Dashboard/> : <Navigate to ={"/signup"}/>} />
+        <Route path='/courses' element={userData?.role === "educator" ? <Courses/> : <Navigate to ={"/signup"}/>} />
         <Route path='/createcourse' element={userData?.role === "educator" ? <CreateCourses/> : <Navigate to ={"/signup"}/>} />
     </Routes>
     </>
