@@ -8,7 +8,7 @@ export const createCourse = async (req, res) => {
         }
         const courses = await course.create({
             title,
-            description,
+            category,
             creator: req.userId
         });
         return res.status(201).json(course);
