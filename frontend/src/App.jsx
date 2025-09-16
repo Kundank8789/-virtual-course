@@ -14,10 +14,12 @@ import EditProfile from './pages/EditProfile.jsx'
 import Dashboard from './pages/Educator/Dashboard.jsx'
 import Courses from './pages/Educator/courses.jsx'
 import CreateCourses from './pages/Educator/CreateCourses.jsx'
+import getCreatorCourse from './customHooks/getCreatorCourse.js'
 
 
 function App() {
   getCurrentUser();
+  getCreatorCourse();
   const {userData} = useSelector(state=>state.user)
   return (
     <>

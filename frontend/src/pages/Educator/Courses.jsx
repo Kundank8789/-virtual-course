@@ -3,9 +3,11 @@ import {FaArrowLeftLong} from "react-icons/fa6"
 import { useNavigate } from 'react-router-dom'
 import img from "../../assets/empty.jpg" 
 import {FaEdit} from "react-icons/fa";
+import { useSelector } from 'react-redux';
 
 function courses() {
     const navigate = useNavigate();
+    const {createCourseData} = useSelector(state=>state.course)
   return (
     <div className='flex min-h-screen bg-grey-100'>
         <div className='w-[100%] min-h-screen p-4 sm:p-6 bg-gray-100'>
@@ -31,7 +33,9 @@ function courses() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className='border-b hover:bg-gray-50 transition duration-200'>
+
+                    {createCourseData?.map((course, index)=>(
+                    <tr key={index} className='border-b hover:bg-gray-50 transition duration-200'>
                         <td className='py-3 px-4 flex items-center gap-4'>
                             <img src={img} className='w-25 h-14 object-cover rounded-md' alt="" /> <span>Title</span>
                         </td>
@@ -41,6 +45,7 @@ function courses() {
                             <FaEdit className='text-gray-600 hover:text-blue-600 cursor-pointer'/>
                         </td>
                     </tr>
+                    ))}
                 </tbody>
             </table>
             <p className='text-center text-sm text-gray-400 mt-6'>A List of recent Courses.</p>
