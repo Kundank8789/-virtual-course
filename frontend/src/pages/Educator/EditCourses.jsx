@@ -2,7 +2,8 @@ import React from 'react'
 
 function EditCourses() {
   return (
-    <div>EditCourses</div>
+    <div className='max-w-5xl mx-auto p-6 mt-10 bg-white rounded-lg shadow-md'>
+      </div>
   )
 }
 
